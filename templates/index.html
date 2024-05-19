@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intrusion Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Intrusion Detection System</h1>
+        <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload and Predict">
+        </form>
+        {% if tables %}
+            <h2>Prediction Results</h2>
+            <div class="table-responsive">
+                {{ tables|safe }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
